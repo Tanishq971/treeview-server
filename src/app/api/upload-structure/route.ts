@@ -22,16 +22,17 @@ export async function OPTIONS() {
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    console.log("server ----" , data)
+    console.log("server ----" , data.tree)
     if (!data || typeof data !== 'object') {
       return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
     }
-
+   
     const fileTree = await prisma.fileTree.create({
       data:{
-        data
+        data:data.tree
       }
     })
+
 
     return new NextResponse(JSON.stringify({ url: `/view/${fileTree.id}` }), {
       status: 200,

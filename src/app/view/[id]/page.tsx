@@ -18,6 +18,8 @@ const ViewPage :NextPage<props> = async ({ params })=>{
     return <div>File tree not found.</div>;
   }
 
+  console.log(fileTree)
+
   return (
     <div className="w-full p-6 text-white bg-gray-900">
       <h1 className="text-2xl font-semibold mb-4">File Tree</h1>
