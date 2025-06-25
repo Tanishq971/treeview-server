@@ -22,7 +22,7 @@ export async function OPTIONS() {
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-   
+    console.log("server ----" , data)
     if (!data || typeof data !== 'object') {
       return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
     }
